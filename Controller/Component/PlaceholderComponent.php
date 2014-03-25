@@ -51,6 +51,9 @@ class PlaceholderComponent extends Component {
 		$this->setBackgroundColor($this->settings['backgroundColor']);
 		$this->setTextColor($this->settings['textColor']);
 		$this->setCache($this->settings['cache']);
+		if (isset($this->settings['font'])) {
+			$this->setFont($this->settings['font']);
+		}
 		if ($this->settings['cache']) {
 			$this->setCacheDir($this->settings['cacheDir']);
 		}

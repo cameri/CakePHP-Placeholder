@@ -36,11 +36,21 @@ class PlaceholderController extends AppController {
  * @param string $bgColor Background color in HEX (e.g. 0A0A0A)
  * @param string $textColor Text color in HEX (e.g. 3F3F3F)
  */
-	public function display($width, $height, $bgColor = null, $textColor = null) {
+	public function display($width, $height = null, $bgColor = null, $textColor = null) {
 		// Disable layout and view rendering
 		$this->autoRender = false;
 
 		// Set dimensions
+		if ($height === null) {
+			// e.g. 700x200
+			if (preg_match("#^(?<width>\\d+)x(?<height>\\d+)$#", $width, $matches)) {
+				$width = $matches['width'];
+				$height = $matches['height'];
+			} else {
+				$height = $width;
+			}
+		}
+
 		$this->Placeholder->setWidth($width);
 		$this->Placeholder->setHeight($height);
 
@@ -56,8 +66,10 @@ class PlaceholderController extends AppController {
 	    }
 	    
 	    // Set correct content type
-	    $this->response->type('image/png');
+	    //$this->response->type('image/png');
 
+	    //print_r($this);
+	    //die();
 	    // Render to browser
 	    return $this->Placeholder->render();
 	}

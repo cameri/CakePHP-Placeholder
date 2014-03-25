@@ -39,3 +39,8 @@ Configure::write('Placeholder.cache', true);
  * Cache directory. Not used if caching is disabled.
  */
 Configure::write('Placeholder.cacheDir', CACHE . DS . 'placeholder/');
+
+/**
+ * TTF Font.
+ */
+//Configure::write('Placeholder.font', PATH_TO_TTF_FONT);

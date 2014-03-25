@@ -13,4 +13,79 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-	Router::connect('/ph/*', array('controller' => 'placeholder', 'action' => 'display', 'plugin' => 'placeholder'));
+ 	Router::connect('/placeholder/:width/:height', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('width', 'height'),
+ 			'width' => '[0-9]+',
+ 			'height' => '[0-9]+',
+ 			'ext' => 'png'
+ 		)
+ 	);
+ 	Router::connect('/placeholder/:width/:height/:bgColor/:textColor', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('width', 'height', 'bgColor', 'textColor'),
+ 			'width' => '[0-9]+',
+ 			'height' => '[0-9]+',
+ 			'bgColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'textColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'ext' => 'png'
+ 		)
+ 	); 	
+ 	Router::connect('/placeholder/:widthXheight', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('w', 'h'),
+ 			'widthXheight' => '(?<w>[0-9]+)x(?<h>[0-9]+)',
+ 			'ext' => 'png'
+ 		)
+ 	);
+ 	Router::connect('/placeholder/:widthXheight/:bgColor/:textColor', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('w', 'h', 'bgColor', 'textColor'),
+ 			'widthXheight' => '(?<w>[0-9]+)x(?<h>[0-9]+)',
+ 			'bgColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'textColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'ext' => 'png'
+ 		)
+ 	); 	
+  	Router::connect('/placeholder/:width/:bgColor/:textColor', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('width', 'width', 'bgColor', 'textColor'),
+ 			'width' => '[0-9]+',
+ 			'bgColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'textColor' => '([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})',
+ 			'ext' => 'png'
+ 		)
+ 	);
+
+ 	Router::connect('/placeholder/:width', array(
+ 			'controller' => 'placeholder',
+ 			'action' => 'display',
+ 			'plugin' => 'placeholder'
+ 		),
+ 		array(
+ 			'pass' => array('width'),
+ 			'ext' => 'png'
+ 		)
+ 	);
+
+	Router::parseExtensions('png');
