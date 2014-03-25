@@ -54,7 +54,16 @@ class PlaceholderComponent extends Component {
 		if (isset($this->settings['font'])) {
 			$this->setFont($this->settings['font']);
 		}
-		if ($this->settings['cache']) {
+		if (isset($this->settings['expires'])) {
+			$this->setExpires($this->settings['expires']);
+		}
+		if (isset($this->settings['maxWidth'])) {
+			$this->setMaxWidth($this->settings['maxWidth']);
+		}
+		if (isset($this->settings['maxHeight'])) {
+			$this->setMaxHeight($this->settings['maxHeight']);
+		}
+		if (isset($this->settings['cache'])) {
 			$this->setCacheDir($this->settings['cacheDir']);
 		}
 	}

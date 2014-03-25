@@ -44,3 +44,19 @@ Configure::write('Placeholder.cacheDir', CACHE . DS . 'placeholder/');
  * TTF Font.
  */
 //Configure::write('Placeholder.font', PATH_TO_TTF_FONT);
+
+/**
+ * Browser cache expiration.
+ */
+Configure::write('Placeholder.expires', 604800);
+
+/**
+ * Placeholder maximum width.
+ */
+Configure::write('Placeholder.maxWidth', 20000);
+
+/**
+ * Placeholder maximum height.
+ */
+Configure::write('Placeholder.maxHeight', 20000);
+
