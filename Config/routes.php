@@ -83,7 +83,8 @@
  			'plugin' => 'placeholder'
  		),
  		array(
- 			'pass' => array('width'),
+ 			'pass' => array('width', 'width'),
+ 			'width' => '[0-9]+',
  			'ext' => 'png'
  		)
  	);
