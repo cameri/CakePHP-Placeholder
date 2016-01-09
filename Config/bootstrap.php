@@ -23,7 +23,7 @@
 /**
  * Default background color.
  */
-Configure::write('Placeholder.backgroundColor', 'F2F2F4');
+Configure::write('Placeholder.backgroundColor', 'D3D6DD');
 
 /**
  * Default background color.
