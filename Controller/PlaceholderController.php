@@ -24,13 +24,20 @@ class PlaceholderController extends AppController {
 /**
  * Components
  *
- * @var mixed 
+ * @var mixed
  */
 	var $components = array('Placeholder.Placeholder');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if ($this->Auth) {
+            $this->Auth->allow();
+        }
+    }
+
 /**
  * Renders a placeholder image
- * 
+ *
  * @param int $width Placeholder's width
  * @param int $height Placeholder's height
  * @param string $bgColor Background color in HEX (e.g. 0A0A0A)
@@ -46,15 +53,15 @@ class PlaceholderController extends AppController {
 
 		// Set background color
 		if ($bgColor !== null) {
-			$this->Placeholder->setBackgroundColor($bgColor);	
+			$this->Placeholder->setBackgroundColor($bgColor);
 		}
-		
+
 
 		// Set foreground color
 	    if ($textColor !== null) {
 	    	$this->Placeholder->setTextColor($textColor);
 	    }
-	    
+
 	    // Set correct content type
 	    //$this->response->type('image/png');
 
