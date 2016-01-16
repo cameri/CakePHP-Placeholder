@@ -1,4 +1,4 @@
 [submodule "Vendor/placeholder"]
 	path = Vendor/placeholder
-	url = https://github.com/img-src/placeholder.git
+	url = git@github.com:img-src/placeholder.git
 	branch = master
